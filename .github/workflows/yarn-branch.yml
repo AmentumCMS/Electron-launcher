@@ -133,9 +133,79 @@ jobs:
           path: node-modules-${{ needs.Setup.outputs.Date }}.tgz.txt
           if-no-files-found: error
 
+  BuildExecutables:
+    runs-on: ${{ matrix.os }}
+    needs: [Setup, Collect]
+    permissions:
+      contents: write
+      pull-requests: read
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            platform: linux
+          - os: windows-latest
+            platform: win
+          - os: macos-latest
+            platform: mac
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ needs.Setup.outputs.v22 }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ needs.Setup.outputs.v22 }}
+
+      - name: Enable Corepack
+        run: |
+          echo "Enabling Corepack for Yarn"
+          corepack enable
+          echo "Node Version: $(node -v)"
+          echo "Yarn version: $(yarn -v)"
+
+      - name: Run yarn install
+        run: yarn install
+
+      - name: Build Electron executable
+        run: yarn build:${{ matrix.platform }} --publish never
+
+      - name: List build artifacts
+        run: ls -lh dist/
+        shell: bash
+
+      - name: Upload Linux artifacts
+        if: matrix.platform == 'linux'
+        uses: actions/upload-artifact@v4
+        with:
+          name: electron-launcher-linux-${{ needs.Setup.outputs.Date }}
+          path: |
+            dist/*.AppImage
+            dist/*.deb
+          if-no-files-found: error
+
+      - name: Upload Windows artifacts
+        if: matrix.platform == 'win'
+        uses: actions/upload-artifact@v4
+        with:
+          name: electron-launcher-windows-${{ needs.Setup.outputs.Date }}
+          path: |
+            dist/*.exe
+          if-no-files-found: error
+
+      - name: Upload macOS artifacts
+        if: matrix.platform == 'mac'
+        uses: actions/upload-artifact@v4
+        with:
+          name: electron-launcher-macos-${{ needs.Setup.outputs.Date }}
+          path: |
+            dist/*.dmg
+            dist/*.zip
+          if-no-files-found: error
+
   MakeISO:
     runs-on: ubuntu-24.04
-    needs: [Setup, Collect]
+    needs: [Setup, Collect, BuildExecutables]
     permissions:
       contents: write
       pull-requests: read
