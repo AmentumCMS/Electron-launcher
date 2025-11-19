@@ -15,5 +15,6 @@
   "dependencies": {
     "electron": "^39.2.2",
     "yargs": "^18.0.0"
-  }
+  },
+  "packageManager": "yarn@4.6.0"
 }
