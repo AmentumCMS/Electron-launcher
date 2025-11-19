@@ -106,28 +106,28 @@ jobs:
             | tee yarn-cache-${{ needs.Setup.outputs.Date }}.tgz.txt
 
       - name: Upload yarn-cache artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: yarn-cache-${{ needs.Setup.outputs.Date }}.tgz
           path: yarn-cache-${{ needs.Setup.outputs.Date }}.tgz*
           if-no-files-found: error
 
       - name: Upload yarn-cache ToC artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: yarn-cache-${{ needs.Setup.outputs.Date }}.tgz.txt
           path: yarn-cache-${{ needs.Setup.outputs.Date }}.tgz.txt
           if-no-files-found: error
 
       - name: Upload node-modules artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: node-modules-${{ needs.Setup.outputs.Date }}.tgz
           path: node-modules-${{ needs.Setup.outputs.Date }}.tgz*
           if-no-files-found: error
 
       - name: Upload node-modules ToC artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: node-modules-${{ needs.Setup.outputs.Date }}.tgz.txt
           path: node-modules-${{ needs.Setup.outputs.Date }}.tgz.txt
@@ -165,7 +165,7 @@ jobs:
             | tee ISO/${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.txt
 
       - name: Upload iso ToC artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.txt
           path: ISO/${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.txt
@@ -191,14 +191,14 @@ jobs:
         run: ls -Alht *.iso*
 
       - name: Upload iso artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso
           path: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso
           if-no-files-found: error
 
       - name: Upload iso sha artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.sha
           path: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.sha
