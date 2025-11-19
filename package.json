@@ -1,0 +1,19 @@
+{
+  "name": "electron-launcher",
+  "version": "1.0.0",
+  "description": "Configurable electron launcher",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test-config.js",
+    "test:cli": "node test-config.js --url https://www.test.com",
+    "test:custom-config": "node test-config.js --config config.example.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^39.2.2",
+    "yargs": "^18.0.0"
+  }
+}
