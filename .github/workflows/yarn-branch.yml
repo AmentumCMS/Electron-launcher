@@ -67,7 +67,7 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Use Node.js ${{ needs.Setup.outputs.v22 }}
         uses: actions/setup-node@v4
@@ -146,7 +146,7 @@ jobs:
           sudo apt-get install -y mkisofs isomd5sum wget
 
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download Artifacts
         uses: actions/download-artifact@v4
@@ -220,7 +220,7 @@ jobs:
           sudo apt-get install -y isomd5sum
 
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download ISO and hash
         uses: actions/download-artifact@v4
@@ -267,7 +267,7 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download Artifacts
         uses: actions/download-artifact@v4
