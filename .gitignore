@@ -1,5 +1,8 @@
 # Dependencies
 node_modules/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/install-state.gz
 
 # Yarn cache
 .yarn/cache/
