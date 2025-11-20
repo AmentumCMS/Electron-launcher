@@ -1135,6 +1135,7 @@ __metadata:
     verror: "npm:^1.10.0"
   bin:
     dmg-license: bin/dmg-license.js
+  checksum: 10c0/feef35cfb45270a72daadcca9584be5cb840f924448b9d4e543fcd61f1b6d471151049f277c91de1d8b003fad6203d0176066a5f427a01df5fb073402cb8c8b7
   conditions: os=darwin
   languageName: node
   linkType: hard
@@ -1209,6 +1210,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "electron-launcher@workspace:."
   dependencies:
+    dmg-license: "npm:^1.0.11"
     electron: "npm:^39.2.2"
     electron-builder: "npm:26.0.12"
     yargs: "npm:^18.0.0"
@@ -1232,15 +1234,15 @@ __metadata:
   linkType: hard
 
 "electron@npm:^39.2.2":
-  version: 39.2.2
-  resolution: "electron@npm:39.2.2"
+  version: 39.2.3
+  resolution: "electron@npm:39.2.3"
   dependencies:
     "@electron/get": "npm:^2.0.0"
     "@types/node": "npm:^22.7.7"
     extract-zip: "npm:^2.0.1"
   bin:
     electron: cli.js
-  checksum: 10c0/4ba7c6b3cd956b11375b9ed3d1c2e82d7b4d2548578aa804e90d6467dc75f3f6d95fcaf3d46ab74b40197ea128d7ff153e932569ba3a6301781cc82661e0ce2b
+  checksum: 10c0/4ebfd932cabaf2b49859b1437661941e1a4475ac5b8a7f8e7be02276ea6ba0f901889b02a39cdaab7803c41f87afa46216e626397687140df5eb7978caade595
   languageName: node
   linkType: hard
 
@@ -1828,6 +1830,7 @@ __metadata:
   dependencies:
     cli-truncate: "npm:^2.1.0"
     node-addon-api: "npm:^1.6.3"
+  checksum: 10c0/bc6f08ac421e5e92ed20f3825f123fd705e036612b2b6aa687958de753c06f32e54f0203ef55540869e3ee189eaea15e43a2757f3a90e555c4dd512c9422da43
   conditions: os=darwin
   languageName: node
   linkType: hard
