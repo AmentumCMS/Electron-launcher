@@ -136,3 +136,50 @@ This will use the window dimensions from `my-config.json` but load https://www.s
 ## License
 
 ISC
+
+## Building Distributable Packages
+
+This application can be packaged into distributable executables for Windows, macOS, and Linux.
+
+### Build All Platforms
+
+```bash
+npm run build
+```
+
+### Build for Specific Platforms
+
+#### Windows
+
+Build all Windows targets (installer, portable, and zip):
+
+```bash
+npm run build:win
+```
+
+Build only the portable executable (standalone/portable .exe that doesn't require installation):
+
+```bash
+npm run build:win:portable
+```
+
+The portable executable will be created in the `dist` directory as `Electron Launcher.exe`. This is a self-contained executable that:
+- Does not require installation
+- Can be run from any location (USB drive, network share, etc.)
+- Stores settings and data portably
+
+#### macOS
+
+```bash
+npm run build:mac
+```
+
+#### Linux
+
+```bash
+npm run build:linux
+```
+
+### Output
+
+Built packages will be available in the `dist` directory after the build completes.
