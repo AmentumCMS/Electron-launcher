@@ -135,7 +135,7 @@ jobs:
 
   BuildExecutables:
     runs-on: ${{ matrix.os }}
-    needs: [Setup, Collect]
+    needs: [Setup]
     permissions:
       contents: write
       pull-requests: read
