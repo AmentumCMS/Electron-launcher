@@ -9,12 +9,12 @@
     "test:cli": "node test-config.js --url https://www.test.com",
     "test:custom-config": "node test-config.js --config config.example.json",
     "build": "electron-builder",
-    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
     "build:win": "electron-builder --win",
-    "build:linux": "electron-builder --linux"
+    "build:mac": "electron-builder --mac"
   },
   "keywords": [],
-  "author": "",
+  "author": "AmentumCMS <info@amentum.com>",
   "license": "ISC",
   "dependencies": {
     "yargs": "^18.0.0"
