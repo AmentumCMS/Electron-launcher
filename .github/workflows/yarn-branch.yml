@@ -67,10 +67,10 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Use Node.js ${{ needs.Setup.outputs.v22 }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ needs.Setup.outputs.v22 }}
 
@@ -106,28 +106,28 @@ jobs:
             | tee yarn-cache-${{ needs.Setup.outputs.Date }}.tgz.txt
 
       - name: Upload yarn-cache artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: yarn-cache-${{ needs.Setup.outputs.Date }}.tgz
           path: yarn-cache-${{ needs.Setup.outputs.Date }}.tgz*
           if-no-files-found: error
 
       - name: Upload yarn-cache ToC artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: yarn-cache-${{ needs.Setup.outputs.Date }}.tgz.txt
           path: yarn-cache-${{ needs.Setup.outputs.Date }}.tgz.txt
           if-no-files-found: error
 
       - name: Upload node-modules artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: node-modules-${{ needs.Setup.outputs.Date }}.tgz
           path: node-modules-${{ needs.Setup.outputs.Date }}.tgz*
           if-no-files-found: error
 
       - name: Upload node-modules ToC artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: node-modules-${{ needs.Setup.outputs.Date }}.tgz.txt
           path: node-modules-${{ needs.Setup.outputs.Date }}.tgz.txt
@@ -146,10 +146,10 @@ jobs:
           sudo apt-get install -y mkisofs isomd5sum wget
 
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           merge-multiple: true
           path: ISO
@@ -165,7 +165,7 @@ jobs:
             | tee ISO/${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.txt
 
       - name: Upload iso ToC artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.txt
           path: ISO/${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.txt
@@ -191,14 +191,14 @@ jobs:
         run: ls -Alht *.iso*
 
       - name: Upload iso artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso
           path: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso
           if-no-files-found: error
 
       - name: Upload iso sha artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.sha
           path: ${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso.sha
@@ -220,10 +220,10 @@ jobs:
           sudo apt-get install -y isomd5sum
 
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download ISO and hash
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           pattern: "${{ vars.COLLECTOR }}-${{ needs.Setup.outputs.Date }}.iso*"
           merge-multiple: true
@@ -267,10 +267,10 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           merge-multiple: true
 
@@ -285,7 +285,7 @@ jobs:
       pull-requests: read
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           merge-multiple: true
 
