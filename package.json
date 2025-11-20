@@ -7,14 +7,54 @@
     "start": "electron .",
     "test": "node test-config.js",
     "test:cli": "node test-config.js --url https://www.test.com",
-    "test:custom-config": "node test-config.js --config config.example.json"
+    "test:custom-config": "node test-config.js --config config.example.json",
+    "build": "electron-builder",
+    "build:linux": "electron-builder --linux",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac"
   },
   "keywords": [],
-  "author": "",
+  "author": "AmentumCMS <info@amentum.com>",
   "license": "ISC",
   "dependencies": {
-    "electron": "^39.2.2",
     "yargs": "^18.0.0"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.6.0",
+  "devDependencies": {
+    "electron": "^39.2.2",
+    "electron-builder": "26.0.12"
+  },
+  "build": {
+    "appId": "com.amentum.electron-launcher",
+    "productName": "Electron Launcher",
+    "files": [
+      "main.js",
+      "config.json",
+      "config.example.json",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.utilities"
+    }
+  }
 }
