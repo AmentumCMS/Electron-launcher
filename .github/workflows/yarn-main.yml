@@ -178,7 +178,7 @@ jobs:
 
       - name: Upload Linux artifacts
         if: matrix.platform == 'linux'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: electron-launcher-linux-${{ needs.Setup.outputs.Date }}
           path: |
@@ -188,7 +188,7 @@ jobs:
 
       - name: Upload Windows artifacts
         if: matrix.platform == 'win'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: electron-launcher-windows-${{ needs.Setup.outputs.Date }}
           path: |
@@ -197,7 +197,7 @@ jobs:
 
       - name: Upload macOS artifacts
         if: matrix.platform == 'mac'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: electron-launcher-macos-${{ needs.Setup.outputs.Date }}
           path: |
